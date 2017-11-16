@@ -9,18 +9,18 @@ function PptXBlock(runtime, element) {
     var handlerCheckReady = runtime.handlerUrl(element, 'is_Video_Processed');
 
     function checkLoop(result) {           //  create a loop function
-        setTimeout(function () {    //  call a 3s setTimeout when the loop is called
-            if (result) {
-                location.reload();
-            } else {
+        if (result) {
+            location.reload();
+        } else {
+            setTimeout(function () {    //  call a 10s setTimeout when the loop is called
                 $.ajax({
                     type: "POST",
                     url: handlerCheckReady,
                     data: JSON.stringify({ "video_url": video_url }),
                     success: checkLoop
                 });                    //  ..  setTimeout()
-            }
-        }, 30000)
+            }, 10000);
+        }
     };
 
     var handlerSubmitUrl = runtime.handlerUrl(element, 'submit_video_url');
