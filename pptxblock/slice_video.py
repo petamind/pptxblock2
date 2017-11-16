@@ -18,18 +18,18 @@ class SliceVideo(threading.Thread):
 
     def run(self):
         # print "Starting " + self.name
-        # new_path = '/vids/new_days.txt'
-        # new_days = open(new_path, 'w')
+        new_path = '/vids/new_days.txt'
+        new_days = open(new_path, 'w')
 
-        # title = 'Video Test writing\n'
-        # new_days.write(title)
-        # print(title)
-        # new_days.close()
+        title = 'Video Test writing\n'
+        new_days.write(title)
+        print(title)
+        new_days.close()
         # download_cmd = ('youtube-dl {1} -o /vids/{0}/{0}.mp4').format(self.video_id, self.video_url)
         # os.system(download_cmd)
         
-        slice_cmd = ('scenedetect -i /vids/{0}/{0}.mp4 -co /vids/{0}/{0}.csv -d content -si -df 4').format(self.video_id)
-        os.system(slice_cmd)
+        # slice_cmd = ('scenedetect -i /vids/{0}/{0}.mp4 -co /vids/{0}/{0}.csv -d content -si -df 4').format(self.video_id)
+        # os.system(slice_cmd)
         #read cvs
         # fline = open(('/vids/{0}/{0}.csv').format(self.video_id)).readline().rstrip()
         # timestamps = fline.split(",")
