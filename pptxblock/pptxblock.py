@@ -28,6 +28,11 @@ class PptXBlock(XBlock):
         help="Video URL to download",
     )
 
+    processed_video_url = String(
+        default="", scope=Scope.settings,
+        help="Video URL to play",
+    )
+
     video_id = String(
         default="", scope=Scope.settings,
         help="Video id to store",
@@ -87,6 +92,7 @@ class PptXBlock(XBlock):
         #     time.sleep(5)
         
         # self.thumbs_html = thread.thumbs_html
+        self.processed_video_url = ('http://192.168.56.1:8080/{0}/{0}.mp4').format(self.video_id)
         return {"video_url": self.video_url}
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.

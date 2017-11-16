@@ -30,5 +30,7 @@ class SliceVideo(threading.Thread):
             self.thumbs_html += "<li><div class=\'card inline\'><img src=\'\' width=\'100\' height=\'100\' /><div class=\'timestamp\'><h4>"
             self.thumbs_html += timestamp
             self.thumbs_html += "</h4></div></li>"
+
+        copy_cmd = ('find /edx/app -name \"{0}*\" -exec mv -t /vids/{0} {{}} +').format(self.video_id)
         # self.timestamps = timestamps
         
