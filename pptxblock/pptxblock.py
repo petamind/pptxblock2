@@ -94,6 +94,15 @@ class PptXBlock(XBlock):
         self.thumbs_html = thread.thumbs_html
         self.processed_video_url = ('http://192.168.56.1:8080/{0}/{0}.mp4').format(self.video_id)
         return {"video_url": self.video_url}
+
+    @XBlock.json_handler
+    def is_Video_Processed(self, data, suffix=''):
+        """
+        A handler, which return the submited video_URL the data.
+        """
+        if len(self.thumbs_html) > 50:
+            return {"thumbs_html": self.thumbs_html}
+        return {}
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.
     # @XBlock.json_handler
