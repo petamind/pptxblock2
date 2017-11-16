@@ -81,10 +81,10 @@ class PptXBlock(XBlock):
 
         thread = SliceVideo(1, "1", self.video_url, self.thumbs_html, self.timestamps)
         thread.start()
-        # while (thread.is_alive()):
-        #     time.sleep(5)
+        while (thread.is_alive()):
+            time.sleep(5)
         
-        # self.thumbs_html = thread.thumbs_html
+        self.thumbs_html = thread.thumbs_html
         return {"video_url": self.video_url}
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.
