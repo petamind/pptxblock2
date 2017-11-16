@@ -11,7 +11,7 @@ function PptXBlock(runtime, element) {
     function checkLoop(result) {           //  create a loop function
         setTimeout(function () {    //  call a 3s setTimeout when the loop is called
             if (result) {
-                
+                location.reload();
             } else {
                 $.ajax({
                     type: "POST",
