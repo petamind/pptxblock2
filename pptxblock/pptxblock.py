@@ -37,7 +37,7 @@ class PptXBlock(XBlock):
         help="HTML code to display the result",
     )
 
-    thumbs_times = List(
+    timestamps = List(
         default=[], scope=Scope.settings,
         help="List of timestamps of related slices",
     )
