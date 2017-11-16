@@ -2,6 +2,7 @@
 
 import pkg_resources
 import time
+import hashlib
 from xblock.core import XBlock
 from xblock.fields import Integer, Scope, String, List
 from xblock.fragment import Fragment
@@ -78,8 +79,9 @@ class PptXBlock(XBlock):
         A handler, which return the submited video_URL the data.
         """
         self.video_url = data['video_url'] 
-
-        thread = SliceVideo(1, "1", self.video_url, self.thumbs_html, self.timestamps)
+        hash_object = hashlib.sha1(self.video_url)
+        self.video_id = hash_object.hexdigest()
+        thread = SliceVideo(1, self.video_id, self.video_url, self.thumbs_html, self.timestamps)
         thread.start()
         while (thread.is_alive()):
             time.sleep(5)
