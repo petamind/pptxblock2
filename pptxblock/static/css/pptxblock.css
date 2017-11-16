@@ -21,14 +21,15 @@ ul.images {
     padding: 0;
     white-space: nowrap;
     width: auto;
+    height: 120px;
     overflow-x: auto;
     background-color: #ddd;
 }
 
 ul.images li {
     display: inline;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 div.inline {
@@ -52,7 +53,9 @@ div.inline {
 }
 
 /* Add some padding inside the card container */
+.timestamp {
 
+}
 .container {
     padding: 2px 16px;
 }
