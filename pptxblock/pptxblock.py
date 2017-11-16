@@ -88,8 +88,8 @@ class PptXBlock(XBlock):
         self.video_id = hash_object.hexdigest()
         thread = SliceVideo(1, self.video_id, self.video_url, self.thumbs_html, self.timestamps)
         thread.start()
-        # while (thread.is_alive()):
-        #     time.sleep(5)
+        while (thread.is_alive()):
+            time.sleep(10)
         
         self.thumbs_html = thread.thumbs_html
         self.processed_video_url = ('http://192.168.56.1:8080/{0}/{0}.mp4').format(self.video_id)
