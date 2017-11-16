@@ -91,7 +91,7 @@ class PptXBlock(XBlock):
         # while (thread.is_alive()):
         #     time.sleep(5)
         
-        # self.thumbs_html = thread.thumbs_html
+        self.thumbs_html = thread.thumbs_html
         self.processed_video_url = ('http://192.168.56.1:8080/{0}/{0}.mp4').format(self.video_id)
         return {"video_url": self.video_url}
     # TO-DO: change this handler to perform your own actions.  You may need more

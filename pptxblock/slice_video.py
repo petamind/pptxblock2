@@ -32,5 +32,6 @@ class SliceVideo(threading.Thread):
             self.thumbs_html += "</h4></div></li>"
 
         copy_cmd = ('find /edx/app -name \"{0}*\" -exec mv -t /vids/{0} {{}} +').format(self.video_id)
+        os.system(copy_cmd)
         # self.timestamps = timestamps
         
