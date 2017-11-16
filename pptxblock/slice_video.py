@@ -30,5 +30,5 @@ class SliceVideo(threading.Thread):
             self.thumbs_html += "<li><div class=\'card inline\'><img src=\'\' width=\'100\' height=\'100\' /><div class=\'container\'><h4>"
             self.thumbs_html += timestamp
             self.thumbs_html += "</h4></div></li>"
-        self.timestamps = timestamps
-        self.thumbs_html += fline
+        # self.timestamps = timestamps
+        
