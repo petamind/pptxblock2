@@ -76,7 +76,7 @@ div.inline {
   overflow:auto; }
 
 #usermsg {
-  width:395px;
+  width:auto;
   border:1px solid #ACD8F0; }
 
 #submit { width: 60px; }

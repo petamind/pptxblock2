@@ -4,7 +4,7 @@ import pkg_resources
 import time
 import hashlib
 from xblock.core import XBlock
-from xblock.fields import Integer, Scope, String, List
+from xblock.fields import Integer, Scope, String, List, Dict
 from xblock.fragment import Fragment
 from slice_video import SliceVideo
 
@@ -47,6 +47,17 @@ class PptXBlock(XBlock):
         default=[], scope=Scope.settings,
         help="List of timestamps of related slices",
     )
+
+    comments = List(
+        default=[], scope=Scope.settings,
+        help="List of timestamps of related slices",
+    )
+
+    comments_dict = Dict(
+        default=[], scope=Scope.user_state_summary,
+        help="List of comments of related slices",
+    )
+
 
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""

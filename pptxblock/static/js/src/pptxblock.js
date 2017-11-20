@@ -18,7 +18,7 @@ function PptXBlock(runtime, element) {
                 $.ajax({
                     type: "POST",
                     url: handlerCheckReady,
-                    data: JSON.stringify({ "video_url": video_url }),
+                    data: JSON.stringify({ "video_url": "video_url" }),
                     success: checkLoop
                 });                    //  ..  setTimeout()
             }, 10000);
@@ -35,6 +35,11 @@ function PptXBlock(runtime, element) {
             data: JSON.stringify({ "video_url": video_url }),
             success: updateVideoUrl
         });
+    });
+
+    $('.card', element).click(function (eventObject) {
+        var timestamp = $(this).text();
+        $(".chatbox").text($(".chatbox").text()+"<p>"+timestamp+"</p>");
     });
 
 
@@ -56,5 +61,6 @@ function PptXBlock(runtime, element) {
     $(function ($) {
         /* Here's where you'd do things on page load. */
         checkLoop();
+        
     });
 }
