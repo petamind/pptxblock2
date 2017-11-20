@@ -40,7 +40,7 @@ function PptXBlock(runtime, element) {
 
     $('.card', element).click(function (eventObject) {
         var timestamp = $(this).text();
-        $(".chatbox").text($(".chatbox").text()+"<p>"+timestamp+"</p>");
+        $("#chatbox").text($("#chatbox").text()+"<p>"+timestamp+"</p>");
     });
 
 
