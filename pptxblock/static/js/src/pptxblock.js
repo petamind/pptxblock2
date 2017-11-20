@@ -29,6 +29,7 @@ function PptXBlock(runtime, element) {
 
     $('.video_url', element).submit(function (eventObject) {
         var video_url = $('#video_url').val();
+        checkLoop(); 
         $.ajax({
             type: "POST",
             url: handlerSubmitUrl,
@@ -60,7 +61,6 @@ function PptXBlock(runtime, element) {
 
     $(function ($) {
         /* Here's where you'd do things on page load. */
-        checkLoop();
-        
+      
     });
 }
