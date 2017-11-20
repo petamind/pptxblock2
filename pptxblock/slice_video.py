@@ -28,7 +28,7 @@ class SliceVideo(threading.Thread):
         #process to html div 
         i = 1
         for timestamp in timestamps:
-            self.thumbs_html += ("<li><div class=\'card inline\' ><img src=\'http://192.168.56.1:8080/{0}/{0}.mp4.Scene-{1}-IN.jpg\' width=\'100\' height=\'100\' /><div class=\'timestamp\'><h4 id='card{i}'>").format(self.video_id, i)
+            self.thumbs_html += ("<li><div class=\'card inline\' ><img src=\'http://192.168.56.1:8080/{0}/{0}.mp4.Scene-{1}-IN.jpg\' width=\'100\' height=\'100\' /><div class=\'timestamp\'><h4>").format(self.video_id, i)
             self.thumbs_html += timestamp
             self.thumbs_html += "</h4></div></li>"
             i = i + 1
