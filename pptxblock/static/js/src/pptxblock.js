@@ -11,7 +11,9 @@ function PptXBlock(runtime, element) {
     function checkLoop(result) {           //  create a loop function
         if (result) {
             location.reload();
+            console.log("!null checkloop")
         } else {
+            console.log("null checkloop")
             setTimeout(function () {    //  call a 10s setTimeout when the loop is called
                 $.ajax({
                     type: "POST",
@@ -27,7 +29,6 @@ function PptXBlock(runtime, element) {
 
     $('.video_url', element).submit(function (eventObject) {
         var video_url = $('#video_url').val();
-        checkLoop(null);
         $.ajax({
             type: "POST",
             url: handlerSubmitUrl,
@@ -54,5 +55,6 @@ function PptXBlock(runtime, element) {
 
     $(function ($) {
         /* Here's where you'd do things on page load. */
+        checkLoop();
     });
 }
