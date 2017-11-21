@@ -29,7 +29,7 @@ sudo npm install -g live-server
 
 #To install the xblock
 
-git clone https://github.com/tungsd/pptxblock.git
+git clone https://github.com/tungsd/pptxblock2.git
 
 #edit pptxblock.py img_server_url = " vid server url", for example: img_server_url = "http://192.168.56.1:8080"
 
