@@ -76,10 +76,20 @@ div.inline {
   overflow:auto; }
 
 #usermsg {
-  width:auto;
-  border:1px solid #ACD8F0; }
+  width:100%;
+  border:1px solid #ACD8F0;
+  
+ }
 
-#submit { width: 60px; }
+ #usermsg_div {
+    overflow: hidden;
+    padding-right: .5em;
+ }
+
+#submitmsg { 
+    width: 60px;
+    float: right;
+}
 
 .error { color: #ff0000; }
 

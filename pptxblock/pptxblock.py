@@ -11,9 +11,9 @@ from slice_video import SliceVideo
 
 class PptXBlock(XBlock):
     """
-    TO-DO: document what your XBlock does.
+    Download and slice videos
     """
-
+    img_server_url = "http://192.168.56.1:8080"
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 
@@ -97,13 +97,13 @@ class PptXBlock(XBlock):
         self.video_url = data['video_url'] 
         hash_object = hashlib.sha1(self.video_url)
         self.video_id = hash_object.hexdigest()
-        thread = SliceVideo(1, self.video_id, self.video_url, self.thumbs_html, self.timestamps)
+        thread = SliceVideo(1, self.video_id, self.video_url, self.thumbs_html, self.timestamps,self.img_server_url)
         thread.start()
         while (thread.is_alive()):
             time.sleep(10)
         
         self.thumbs_html = thread.thumbs_html
-        self.processed_video_url = ('http://192.168.56.1:8080/{0}/{0}.mp4').format(self.video_id)
+        self.processed_video_url = ('{1}/{0}/{0}.mp4').format(self.video_id,self.img_server_url)
         return {"video_url": self.video_url}
 
     @XBlock.json_handler
