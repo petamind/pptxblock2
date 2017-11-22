@@ -58,12 +58,12 @@ function PptXBlock(runtime, element) {
 
     var handlerSubmitComment = runtime.handlerUrl(element, 'submit_comment');
     function updateComments(result){
-        $("#chatbox").append(result['comment']);
+        $("#chatbox").append(result);
     };
 
     $(".comment_form", element).submit(function(eventObject){
         eventObject.preventDefault();
-        var comment = $('#submitmsg').val();
+        var comment = $('#usermsg').val();
         $("#chatbox").append("<span>"+comment+"</span><br/>");
         $.ajax({
             type: "POST",
