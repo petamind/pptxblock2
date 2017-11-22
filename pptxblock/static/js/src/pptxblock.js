@@ -56,10 +56,12 @@ function PptXBlock(runtime, element) {
         }
     });
 
-    var handlerSubmitComment = runtime.handlerUrl(element, 'submit_comment');
+    
     function updateComments(result){
-        $("#chatbox").append(result);
+        $("#chatbox").append("saved");
     };
+
+    var handlerSubmitComment = runtime.handlerUrl(element, 'submit_comment');
 
     $(".comment_form", element).submit(function(eventObject){
         eventObject.preventDefault();
