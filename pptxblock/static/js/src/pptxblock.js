@@ -43,6 +43,16 @@ function PptXBlock(runtime, element) {
         $("#chatbox").append("<span>"+timestamp+"</span><br/>");
     });
 
+    $('#hide_chatbox', element).click(function(eventObject){
+        if($("#chatbox").is(":visible")){
+            $("#chatbox").hide();
+            $('.comment_form').hide();
+        } else {
+            $("#chatbox").show();
+            $('.comment_form').show();
+        }
+    });
+
 
     // function updateCount(result) {
     //     $('.count', element).text(result.count);
