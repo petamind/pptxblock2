@@ -54,7 +54,7 @@ class PptXBlock(XBlock):
     )
 
     comments_dict = Dict(
-        default=[], scope=Scope.user_state_summary,
+        default={}, scope=Scope.user_state_summary,
         help="List of comments of related slices",
     )
 
@@ -113,6 +113,16 @@ class PptXBlock(XBlock):
         """
         if len(self.thumbs_html) > 50:
             return {"thumbs_html": self.thumbs_html}
+        return {}
+
+    @XBlock.json_handler
+    def submit_comment(self, data, suffix=''):
+        """
+        A handler, which save comment.
+        """
+        if len(data['comment']) > 0:
+            self.comments.append(data['comment'])
+            return {"comment": "saved"}
         return {}
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.

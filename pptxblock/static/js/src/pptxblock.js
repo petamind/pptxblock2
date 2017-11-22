@@ -44,6 +44,7 @@ function PptXBlock(runtime, element) {
     });
 
     $('#hide_chatbox', element).click(function(eventObject){
+        eventObject.preventDefault();
         if($("#chatbox").is(":visible")){
             $("#chatbox").hide();
             $('.comment_form').hide();
@@ -53,6 +54,23 @@ function PptXBlock(runtime, element) {
             $('.comment_form').show();
             $('#hide_chatbox').text("Hide comments")
         }
+    });
+
+    var handlerSubmitComment = runtime.handlerUrl(element, 'submit_comment');
+    function updateComments(result){
+        $("#chatbox").append(result['comment']);
+    };
+
+    $(".comment_form", element).submit(function(eventObject){
+        eventObject.preventDefault();
+        var comment = $('#submitmsg').val();
+        $("#chatbox").append("<span>"+comment+"</span><br/>");
+        $.ajax({
+            type: "POST",
+            url: handlerSubmitComment,
+            data: JSON.stringify({ "comment":  comment}),
+            success: updateComments
+        });
     });
 
 
