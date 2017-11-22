@@ -47,11 +47,11 @@ function PptXBlock(runtime, element) {
         if($("#chatbox").is(":visible")){
             $("#chatbox").hide();
             $('.comment_form').hide();
-            $('hide_chatbox').text("Show comments")
+            $('#hide_chatbox').text("Show comments")
         } else {
             $("#chatbox").show();
             $('.comment_form').show();
-            $('hide_chatbox').text("Hide comments")
+            $('#hide_chatbox').text("Hide comments")
         }
     });
 
