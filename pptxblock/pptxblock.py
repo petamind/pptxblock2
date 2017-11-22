@@ -120,10 +120,10 @@ class PptXBlock(XBlock):
         """
         A handler, which save comment.
         """
-        if len(data['comment']) > 0:
-            self.comments.append(data['comment'])
-            return {"comment": "saved"}
-        return {}
+        #if len(data['comment']) > 0:
+        self.comments.append(data['comment'])
+        return {"comment": "saved"}
+        #return {}
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.
     # @XBlock.json_handler
