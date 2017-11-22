@@ -121,22 +121,10 @@ class PptXBlock(XBlock):
         A handler, which save comment.
         """
         #if len(data['comment']) > 0:
-        self.comments.append(data['comment'])
+        #self.comments.append(data['comment'])
         return {"comment": "saved"}
         #return {}
-    # TO-DO: change this handler to perform your own actions.  You may need more
-    # than one handler, or you may not need any handlers at all.
-    # @XBlock.json_handler
-    # def increment_count(self, data, suffix=''):
-    #     """
-    #     An example handler, which increments the data.
-    #     """
-    #     # Just to show data coming in...
-    #     assert data['hello'] == 'world'
-
-    #     self.count += 1
-    #     return {"count": self.count}
-
+   
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
     @staticmethod
