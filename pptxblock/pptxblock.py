@@ -123,7 +123,10 @@ class PptXBlock(XBlock):
         A handler, which save comment.
         """
         # if len(data['comment']) > 0:
-        self.comments += data['comment']
+        user_service = self.runtime.service(self, 'user')
+        xb_user = user_service.get_current_user()
+        
+        self.comments += data['comment'] + xb_user.full_name
         return {"comment": self.comments}
         # else:
         #     return {}

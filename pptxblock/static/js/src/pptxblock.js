@@ -1,8 +1,6 @@
 /* Javascript for PptXBlock. */
 function PptXBlock(runtime, element) {
 
-    user_service = runtime.service(self, 'user')
-    xb_user = user_service.get_current_user()
     // Settings---------------------------
     function updateVideoUrl(result) {
         $('.submited_video_url', element).text(result.video_url);
@@ -67,7 +65,7 @@ function PptXBlock(runtime, element) {
     var handlerSubmitComment = runtime.handlerUrl(element, 'submit_slice_comment');
 
     $(".comment_form", element).submit(function (eventObject) {
-        var comment = $('#usermsg').val() + xb_user.full_name;
+        var comment = $('#usermsg').val();
         $.ajax({
             type: "POST",
             url: handlerSubmitComment,
