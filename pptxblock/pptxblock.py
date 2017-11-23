@@ -107,7 +107,7 @@ class PptXBlock(XBlock):
         return {"video_url": self.video_url}
 
     @XBlock.json_handler
-    def is_Video_Processed(self, data, suffix=''):
+    def is_video_processed(self, data, suffix=''):
         """
         A handler, which return the submited video_URL the data.
         """

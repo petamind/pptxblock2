@@ -6,7 +6,7 @@ function PptXBlock(runtime, element) {
         $('.submited_video_url', element).text(result.video_url);
     }
 
-    var handlerCheckReady = runtime.handlerUrl(element, 'is_Video_Processed');
+    var handlerCheckReady = runtime.handlerUrl(element, 'is_video_processed');
 
     function checkLoop(result) {           //  create a loop function
         if (result) {
@@ -29,7 +29,7 @@ function PptXBlock(runtime, element) {
 
     $('.video_url', element).submit(function (eventObject) {
         var video_url = $('#video_url').val();
-        checkLoop(); 
+        checkLoop();
         $.ajax({
             type: "POST",
             url: handlerSubmitUrl,
@@ -38,14 +38,15 @@ function PptXBlock(runtime, element) {
         });
     });
 
+    // Interact with slices---------------------------
     $('.card', element).click(function (eventObject) {
         var timestamp = $(this).text();
-        $("#chatbox").append("<span>"+timestamp+"</span><br/>");
+        $("#chatbox").append("<span>" + timestamp + "</span><br/>");
     });
 
-    $('#hide_chatbox', element).click(function(eventObject){
+    $('#hide_chatbox', element).click(function (eventObject) {
         eventObject.preventDefault();
-        if($("#chatbox").is(":visible")){
+        if ($("#chatbox").is(":visible")) {
             $("#chatbox").hide();
             $('.comment_form').hide();
             $('#hide_chatbox').text("Show comments")
@@ -56,43 +57,28 @@ function PptXBlock(runtime, element) {
         }
     });
 
-    
-    function updateComments(result){
+    // Commenting---------------------------
+    function updateComments(result) {
         $("#chatbox").append("saved");
     };
 
     var handlerSubmitComment = runtime.handlerUrl(element, 'submit_comment');
 
-    $(".comment_form", element).submit(function(eventObject){
+    $(".comment_form", element).submit(function (eventObject) {
         eventObject.preventDefault();
         var comment = $('#usermsg').val();
-        $("#chatbox").append("<span>"+comment+"</span><br/>");
+        $("#chatbox").append("<span>" + comment + "</span><br/>");
+        $('#usermsg').val('');
         $.ajax({
             type: "POST",
             url: handlerSubmitComment,
-            data: JSON.stringify({ "comment":  comment}),
+            data: JSON.stringify({ "comment": comment }),
             success: updateComments
         });
     });
 
-
-    // function updateCount(result) {
-    //     $('.count', element).text(result.count);
-    // }
-
-    // var handlerUrl = runtime.handlerUrl(element, 'increment_count');
-
-    // $('p', element).click(function(eventObject) {
-    //     $.ajax({
-    //         type: "POST",
-    //         url: handlerUrl,
-    //         data: JSON.stringify({"hello": "world"}),
-    //         success: updateCount
-    //     });
-    // });
-
     $(function ($) {
         /* Here's where you'd do things on page load. */
-      
+
     });
 }
