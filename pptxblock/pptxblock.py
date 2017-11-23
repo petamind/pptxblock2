@@ -100,10 +100,11 @@ class PptXBlock(XBlock):
         thread = SliceVideo(1, self.video_id, self.video_url, self.thumbs_html, self.timestamps,self.img_server_url)
         thread.start()
         while (thread.is_alive()):
-            time.sleep(10)
+            time.sleep(30)
         
         self.thumbs_html = thread.thumbs_html
         self.processed_video_url = ('{1}/{0}/{0}.mp4').format(self.video_id,self.img_server_url)
+        self.timestamps = thread.timestamps
         return {"video_url": self.video_url}
 
     @XBlock.json_handler
@@ -113,10 +114,11 @@ class PptXBlock(XBlock):
         """
         if len(self.thumbs_html) > 50:
             return {"thumbs_html": self.thumbs_html}
-        return {}
+        else:
+            return {}
 
     @XBlock.json_handler
-    def submit_comment(self, data, suffix=''):
+    def submit_slice_comment(self, data, suffix=''):
         """
         A handler, which save comment.
         """

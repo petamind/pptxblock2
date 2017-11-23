@@ -62,10 +62,10 @@ function PptXBlock(runtime, element) {
         $("#chatbox").append("saved");
     };
 
-    var handlerSubmitComment = runtime.handlerUrl(element, 'submit_comment');
+    var handlerSubmitComment = runtime.handlerUrl(element, 'submit_slice_comment');
 
     $(".comment_form", element).submit(function (eventObject) {
-        eventObject.preventDefault();
+        //eventObject.preventDefault();
         var comment = $('#usermsg').val();
         $("#chatbox").append("<span>" + comment + "</span><br/>");
         $('#usermsg').val('');
