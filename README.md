@@ -25,7 +25,8 @@ sudo apt-get install npm
 sudo npm install -g live-server
 
 #run live-server in background at /vids directory and save the vid server URL
-
+cd /vids
+live-server &
 
 #To install the xblock
 

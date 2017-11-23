@@ -59,7 +59,7 @@ function PptXBlock(runtime, element) {
 
     // Commenting---------------------------
     function updateComments(result) {
-        $("#chatbox").append("saved");
+        $("#chatbox").append(result['comment']);
     };
 
     var handlerSubmitComment = runtime.handlerUrl(element, 'submit_slice_comment');
