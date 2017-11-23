@@ -33,6 +33,11 @@ class PptXBlock(XBlock):
         help="Video URL to play",
     )
 
+    processed_video_thumb_url = String(
+        default="", scope=Scope.settings,
+        help="Video URL to play",
+    )
+
     video_id = String(
         default="", scope=Scope.settings,
         help="Video id to store",
@@ -104,6 +109,7 @@ class PptXBlock(XBlock):
         
         self.thumbs_html = thread.thumbs_html
         self.processed_video_url = ('{1}/{0}/{0}.mp4').format(self.video_id,self.img_server_url)
+        self.processed_video_thumb_url=  ('{1}/{0}/{0}.mp4.Scene-1-OUT.jpg').format(self.video_id,self.img_server_url)
         self.timestamps = thread.timestamps
         return {"video_url": self.video_url}
 
@@ -126,7 +132,7 @@ class PptXBlock(XBlock):
         user_service = self.runtime.service(self, 'user')
         xb_user = user_service.get_current_user()
         
-        self.comments += data['comment'] + xb_user.full_name
+        self.comments += data['comment'] + xb_user.__name__
         return {"comment": self.comments}
         # else:
         #     return {}
