@@ -124,7 +124,7 @@ class PptXBlock(XBlock):
         """
         # if len(data['comment']) > 0:
         self.comments += data['comment']
-        return {"comment": "saved"}
+        return {"comment": self.comments}
         # else:
         #     return {}
 
