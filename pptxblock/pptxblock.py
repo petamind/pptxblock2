@@ -34,7 +34,7 @@ class PptXBlock(XBlock):
     )
 
     processed_video_thumb_url = String(
-        default="", scope=Scope.settings,
+        default="_", scope=Scope.settings,
         help="Video URL to play",
     )
 
@@ -128,11 +128,8 @@ class PptXBlock(XBlock):
         """
         A handler, which save comment.
         """
-        # if len(data['comment']) > 0:
-        user_service = self.runtime.service(self, 'user')
-        xb_user = user_service.get_current_user()
-        
-        self.comments += data['comment'] + xb_user.__name__
+        # if len(data['comment']) > 0:           
+        self.comments += data['comment']
         return {"comment": self.comments}
         # else:
         #     return {}
