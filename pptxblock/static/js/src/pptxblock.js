@@ -78,6 +78,10 @@ function PptXBlock(runtime, element) {
         
     });
 
+    $(".{self.video_id}", element).click(function(eventObject){
+        alert("clicked video");
+    });
+
     $(function ($) {
         /* Here's where you'd do things on page load. */
 
