@@ -66,7 +66,7 @@ function PptXBlock(runtime, element) {
 
     $(".comment_form", element).submit(function (eventObject) {
         var comment = $('#usermsg').val();
-        var vid_current_time = msToTime($("#ppt_video").currentTime);
+        var vid_current_time = msToTime($("#ppt_video").attr('currentTime'));
         console.log(vid_current_time);
         $.ajax({
             type: "POST",
