@@ -41,7 +41,8 @@ function PptXBlock(runtime, element) {
     // Interact with slices---------------------------
     $('.card', element).click(function (eventObject) {
         var timestamp = $(this).text();
-        $("#chatbox").append("<span>" + timestamp + "</span><br/>");
+        // $("#chatbox").append("<span>" + timestamp + "</span><br/>");
+        $("#ppt_video").get(0).play();
     });
 
     $('#hide_chatbox', element).click(function (eventObject) {
