@@ -67,6 +67,7 @@ function PptXBlock(runtime, element) {
     $(".comment_form", element).submit(function (eventObject) {
         var comment = $('#usermsg').val();
         var vid_current_time = msToTime($("#ppt_video").currentTime);
+        console.log(vid_current_time);
         $.ajax({
             type: "POST",
             url: handlerSubmitComment,
@@ -79,7 +80,8 @@ function PptXBlock(runtime, element) {
         
     });
 
-    function msToTime(duration) {
+    function msToTime(current_time) {
+        var duration = parseInt(parseFloat(current_time) * 1000);
         var milliseconds = parseInt((duration % 1000) / 100)
             , seconds = parseInt((duration / 1000) % 60)
             , minutes = parseInt((duration / (1000 * 60)) % 60)
@@ -92,10 +94,6 @@ function PptXBlock(runtime, element) {
         return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
     }
 
-
-    $(".{self.video_id}", element).click(function(eventObject){
-        alert("clicked video");
-    });
 
     $(function ($) {
         /* Here's where you'd do things on page load. */
