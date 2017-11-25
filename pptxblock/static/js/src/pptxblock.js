@@ -42,6 +42,7 @@ function PptXBlock(runtime, element) {
     $('.card', element).click(function (eventObject) {
         var timestamp = $(this).text();
         // $("#chatbox").append("<span>" + timestamp + "</span><br/>");
+        $("#ppt_video").get(0).currentTime = 5;
         $("#ppt_video").get(0).play();
     });
 
@@ -67,7 +68,7 @@ function PptXBlock(runtime, element) {
 
     $(".comment_form", element).submit(function (eventObject) {
         var comment = $('#usermsg').val();
-        var vid_current_time = msToTime($("#ppt_video").attr('currentTime'));
+        var vid_current_time = msToTime($("#ppt_video")[0].currentTime);
         console.log(vid_current_time);
         $.ajax({
             type: "POST",
