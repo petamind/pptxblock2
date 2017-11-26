@@ -46,7 +46,7 @@ function PptXBlock(runtime, element) {
         // $("#chatbox").append("<span>" + timestamp + "</span><br/>");
         $("#ppt_video").get(0).currentTime = seconds;
         $("#ppt_video").get(0).play();
-        alert(event.target.id)
+        alert(eventObject.target.id)
     });
 
     $('#hide_chatbox', element).click(function (eventObject) {
