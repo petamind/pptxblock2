@@ -130,7 +130,7 @@ class PptXBlock(XBlock):
         """
         # if len(data['comment']) > 0:           
         self.comments += data['comment']
-        #self.comments_dict[data['timestamp']] += data['comment']
+        self.comments_dict[data['slice_number']] += data['comment']
         return {"comment": self.comments}
         # else:
         #     return {}

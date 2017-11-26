@@ -46,6 +46,7 @@ function PptXBlock(runtime, element) {
         // $("#chatbox").append("<span>" + timestamp + "</span><br/>");
         $("#ppt_video").get(0).currentTime = seconds;
         $("#ppt_video").get(0).play();
+        alert(event.target.id)
     });
 
     $('#hide_chatbox', element).click(function (eventObject) {
@@ -75,7 +76,7 @@ function PptXBlock(runtime, element) {
         $.ajax({
             type: "POST",
             url: handlerSubmitComment,
-            data: JSON.stringify({"timestamp": vid_current_time, "comment": comment }),
+            data: JSON.stringify({"slice_number": vid_current_time, "comment": comment }),
             success: updateComments
         });
         eventObject.preventDefault();
