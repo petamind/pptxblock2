@@ -130,7 +130,10 @@ class PptXBlock(XBlock):
         """
         # if len(data['comment']) > 0:           
         self.comments += data['comment']
-        if len(self.comments_dict[data['slice_number']]) > 0:
+        if self.comments_dict is None:
+            self.comments_dict = {}
+            
+        if data['slice_number'] in self.comments_dict:
             self.comments_dict[data['slice_number']] += data['comment']
         else:
             self.comments_dict[data['slice_number']] = data['comment']
