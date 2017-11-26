@@ -137,7 +137,8 @@ class PptXBlock(XBlock):
             self.comments_dict[data['slice_number']] += data['comment']
         else:
             self.comments_dict[data['slice_number']] = data['comment']
-        return {"comment": self.comments}
+
+        return {"comment": self.comments_dict[data['slice_number']]}
         # else:
         #     return {}
 
