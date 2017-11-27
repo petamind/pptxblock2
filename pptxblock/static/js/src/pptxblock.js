@@ -1,5 +1,6 @@
 /* Javascript for PptXBlock. */
 function PptXBlock(runtime, element) {
+    var slice = "s1";
 
     // Settings---------------------------
     function updateVideoUrl(result) {
@@ -46,7 +47,14 @@ function PptXBlock(runtime, element) {
         // $("#chatbox").append("<span>" + timestamp + "</span><br/>");
         $("#ppt_video").get(0).currentTime = seconds;
         $("#ppt_video").get(0).play();
-        alert(this.id)
+        slice = this.id;
+        $.ajax({
+            type: "POST",
+            url: handlerSubmitComment,
+            data: JSON.stringify({"slice_number": slice, "comment": "" }),
+            success: updateComments
+        });
+
     });
 
     $('#hide_chatbox', element).click(function (eventObject) {
@@ -66,6 +74,8 @@ function PptXBlock(runtime, element) {
     function updateComments(result) {
         alert("Your comment has been saved successfully!")
         // $("#chatbox").append(result['comment']);
+        $("#chatbox").empty();
+        $("#chatbox").append(result.replace(/\|/g, '<br/>'));
     };
 
     var handlerSubmitComment = runtime.handlerUrl(element, 'submit_slice_comment');
@@ -74,14 +84,15 @@ function PptXBlock(runtime, element) {
         var comment = $('#usermsg').val();
         var vid_current_time = msToTime($("#ppt_video")[0].currentTime);
         console.log(vid_current_time);
+        var comment_log = "(" + getTimeStamp() +" - " +$(".label-username").text() + ") " + comment + "|";
         $.ajax({
             type: "POST",
             url: handlerSubmitComment,
-            data: JSON.stringify({"slice_number": vid_current_time, "comment": comment }),
+            data: JSON.stringify({"slice_number": slice, "comment": comment_log }),
             success: updateComments
         });
         eventObject.preventDefault();
-        $("#chatbox").append("<span>(" + getTimeStamp() +" - " +$(".label-username").text() + ")" + comment + "</span><br/>");
+        $("#chatbox").append("<span>(" + getTimeStamp() +" - " +$(".label-username").text() + ") " + comment + "</span><br/>");
         $('#usermsg').val('');
         
     });

@@ -3,8 +3,11 @@
         <source src={self.processed_video_url} type="video/mp4">
         <source src={self.processed_video_url} type="video/ogg"> Your browser does not support HTML5 video.
     </video>
-    <p>Use edit setting to add and process video URL:
-        <span class='submited_video_url'>{self.video_url}</span>
+    <p class="intro">
+        {% if self.video_id %} 
+        Use edit setting to add and process video URL: <span class='submited_video_url'>{self.video_url}</span>
+        {% else %} 
+        {% endif %}
     </p>
 </div>
 <ul class="images">{self.thumbs_html}</ul>
@@ -20,7 +23,7 @@
     <form class="comment_form" name="message" action="">
         <input name="submitmsg" type="submit"  id="submitmsg" value="Post" />
         <div id="usermsg_div">
-        <input name="usermsg" type="text" id="usermsg" placeholder="Your comment" />
+        <input name="usermsg" type="text" id="usermsg" placeholder="Select a slice and them post your comment" />
         </div>
     </form>
 </div>
