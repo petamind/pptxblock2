@@ -38,3 +38,5 @@ git clone https://github.com/tungsd/pptxblock2.git
 sudo -u edxapp /edx/bin/pip.edxapp install pptxblock2/
 
 sudo /edx/bin/supervisorctl restart edxapp:
+
+#Add 'pptxblock' to edx to enable it.
