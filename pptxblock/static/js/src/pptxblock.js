@@ -74,7 +74,7 @@ function PptXBlock(runtime, element) {
     function updateComments(result) {
         alert("Your comment has been saved successfully!")
         // $("#chatbox").append(result['comment']);
-        $("#chatbox").empty();
+        // $("#chatbox").empty();
         $("#chatbox").append(result);//.replace(/\|/g, '<br/>')
     };
 
