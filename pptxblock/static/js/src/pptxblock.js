@@ -81,7 +81,7 @@ function PptXBlock(runtime, element) {
             success: updateComments
         });
         eventObject.preventDefault();
-        $("#chatbox").append("<span>(" +getTimeStamp() +" - " +$(".label-username").text() + ")" + comment + "</span><br/>");
+        $("#chatbox").append("<span>(" + getTimeStamp() +" - " +$(".label-username").text() + ")" + comment + "</span><br/>");
         $('#usermsg').val('');
         
     });
@@ -104,6 +104,7 @@ function PptXBlock(runtime, element) {
         } 
         
         today = yyyy + '/' + mm + '/' + dd + ' ' + hh + ':' + min + ':' + ss;
+        return today;
     }
 
     $("#usermsg").focus(function () {
