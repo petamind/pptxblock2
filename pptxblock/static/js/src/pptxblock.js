@@ -81,7 +81,7 @@ function PptXBlock(runtime, element) {
             success: updateComments
         });
         eventObject.preventDefault();
-        $("#chatbox").append("<span>(" +getTimeStamp +" - " +$(".label-username").text() + ")" + comment + "</span><br/>");
+        $("#chatbox").append("<span>(" +getTimeStamp() +" - " +$(".label-username").text() + ")" + comment + "</span><br/>");
         $('#usermsg').val('');
         
     });
