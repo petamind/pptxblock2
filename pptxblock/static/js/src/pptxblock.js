@@ -46,7 +46,7 @@ function PptXBlock(runtime, element) {
         // $("#chatbox").append("<span>" + timestamp + "</span><br/>");
         $("#ppt_video").get(0).currentTime = seconds;
         $("#ppt_video").get(0).play();
-        alert(eventObject.target.id)
+        alert(this.id)
     });
 
     $('#hide_chatbox', element).click(function (eventObject) {
@@ -64,7 +64,8 @@ function PptXBlock(runtime, element) {
 
     // Commenting---------------------------
     function updateComments(result) {
-        $("#chatbox").append(result['comment']);
+        alert("Your comment has been saved successfully!")
+        // $("#chatbox").append(result['comment']);
     };
 
     var handlerSubmitComment = runtime.handlerUrl(element, 'submit_slice_comment');
@@ -80,9 +81,33 @@ function PptXBlock(runtime, element) {
             success: updateComments
         });
         eventObject.preventDefault();
-        $("#chatbox").append("<span>" + comment + "</span><br/>");
+        $("#chatbox").append("<span>(" +getTimeStamp +" - " +$(".label-username").text() + ")" + comment + "</span><br/>");
         $('#usermsg').val('');
         
+    });
+
+    function getTimeStamp() {
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var hh = today.getHours;
+        var min = today.getMinutes;
+        var ss = today.getSeconds;
+        var yyyy = today.getFullYear();
+        
+        if(dd<10) {
+            dd = '0'+dd
+        } 
+        
+        if(mm<10) {
+            mm = '0'+mm
+        } 
+        
+        today = yyyy + '/' + mm + '/' + dd + ' ' + hh + ':' + min + ':' + ss;
+    }
+
+    $("#usermsg").focus(function () {
+        $("#ppt_video").get(0).pause();
     });
 
     function msToTime(current_time) {
