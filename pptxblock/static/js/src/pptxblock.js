@@ -75,7 +75,7 @@ function PptXBlock(runtime, element) {
         //alert("Your comment has been saved successfully!")
         // $("#chatbox").append(result['comment']);
         // $("#chatbox").empty();
-        $("#chatbox").append(result['comment']);//.replace(/\|/g, '<br/>')
+        $("#chatbox").append(result['comment'].replace(/\|/g, '<br/>'));//
     };
 
     var handlerSubmitComment = runtime.handlerUrl(element, 'submit_slice_comment');
@@ -92,7 +92,7 @@ function PptXBlock(runtime, element) {
             success: updateComments
         });
         eventObject.preventDefault();
-        $("#chatbox").append("<span>(" + getTimeStamp() +" - " +$(".label-username").text() + ") " + comment + "</span><br/>");
+        //$("#chatbox").append("<span>(" + getTimeStamp() +" - " +$(".label-username").text() + ") " + comment + "</span><br/>");
         $('#usermsg').val('');
         
     });
