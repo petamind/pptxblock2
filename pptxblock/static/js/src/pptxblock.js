@@ -90,9 +90,9 @@ function PptXBlock(runtime, element) {
         var today = new Date();
         var dd = today.getDate();
         var mm = today.getMonth()+1; //January is 0!
-        var hh = today.getHours;
-        var min = today.getMinutes;
-        var ss = today.getSeconds;
+        var hh = today.getHours();
+        var min = today.getMinutes();
+        var ss = today.getSeconds();
         var yyyy = today.getFullYear();
         
         if(dd<10) {
