@@ -53,10 +53,10 @@ class PptXBlock(XBlock):
         help="List of timestamps of related slices",
     )
 
-    comments = String(
-        default="", scope=Scope.user_state_summary,
-        help="List of timestamps of related slices",
-    )
+    # comments = String(
+    #     default="", scope=Scope.user_state_summary,
+    #     help="List of timestamps of related slices",
+    # )
 
     comments_dict = Dict(
         default={}, scope=Scope.user_state_summary,
@@ -129,7 +129,7 @@ class PptXBlock(XBlock):
         A handler, which save comment.
         """
         # if len(data['comment']) > 0:           
-        self.comments += data['comment']
+        #self.comments += data['comment']
         if self.comments_dict is None:
             self.comments_dict = {}
             
