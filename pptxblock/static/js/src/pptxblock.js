@@ -75,7 +75,7 @@ function PptXBlock(runtime, element) {
         alert("Your comment has been saved successfully!")
         // $("#chatbox").append(result['comment']);
         $("#chatbox").empty();
-        $("#chatbox").append(result.replace(/\|/g, '<br/>'));
+        $("#chatbox").append(result);//.replace(/\|/g, '<br/>')
     };
 
     var handlerSubmitComment = runtime.handlerUrl(element, 'submit_slice_comment');
