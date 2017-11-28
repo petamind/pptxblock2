@@ -26,6 +26,7 @@ sudo npm install -g live-server
 
 #run live-server in background at /vids directory and save the vid server URL
 cd /vids
+
 live-server &
 
 #To install the xblock
@@ -37,3 +38,5 @@ git clone https://github.com/tungsd/pptxblock2.git
 sudo -u edxapp /edx/bin/pip.edxapp install pptxblock2/
 
 sudo /edx/bin/supervisorctl restart edxapp:
+
+#Add 'pptxblock' to edx to enable it.
