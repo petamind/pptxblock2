@@ -1,12 +1,16 @@
 # pptxblock2
 
-#Prerequisites: youtube-dl and scenedetect
+#Prerequisites: youtube-dl and ffmpeg
 
 sudo pip install --upgrade youtube_dl
 
-#Install pyscenedetect and dependencies: OpenCV
+#Install ffmpeg and dependencies
 
-[PySceneDetect](https://pyscenedetect.readthedocs.io/en/latest/download/#installation)
+[ffmpeg](https://www.ffmpeg.org/download.html#build-linux)
+
+sudo add-apt-repository ppa:jonathonf/ffmpeg-3
+
+sudo apt update && sudo apt install ffmpeg libav-tools x264 x265
 
 #Prepare addional settup
 
